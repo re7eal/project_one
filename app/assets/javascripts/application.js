@@ -10,8 +10,10 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require_tree ./jquery
 //= require_tree ./ui
-//= require_tree ./angularjs
+//= require angularjs/angular
+//= require angularjs/angular-ui-router
 //= require app/main
 //= require app/controllers
 //= require_tree ./config
