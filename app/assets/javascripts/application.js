@@ -11,8 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require_tree ./ui
-//= require angular
-//= require angular-ui-router
+//= require_tree ./angularjs
 //= require app/main
 //= require app/controllers
 //= require_tree ./config
