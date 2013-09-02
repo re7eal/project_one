@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+.tile {
+	background-color: #eff0f2;
+	border-radius: 6px;
+	padding: 14px;
+//	position: relative;
+//	-moz-box-sizing: border-box;
+//	-webkit-box-sizing: border-box;
+//	box-sizing: border-box;
+//	text-align: center;
+}
+
+.tile.tile-hot:before {
+	background: url(../images/tile/ribbon.png) 0 0 no-repeat;
+	background-size: 82px 82px;
+	content: '';
+	height: 82px;
+	position: absolute;
+	right: -4px;
+	top: -4px;
+	width: 82px;
+}
+
+.tile p {
+	font-size: 15px; //
+	margin-bottom: 33px;
+}
+
+.tile-image {
+	height: 100px;
+	margin: 31px 0 27px;
+	vertical-align: bottom;
+}
+
+.tile-image.big-illustration {
+	height: 111px;
+	margin-top: 20px;
+	width: 112px;
+}
+
+.tile-title {
+	font-size: 14px;
+	margin-top: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; //
+	margin: 0;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) , only screen and
+		(-webkit-min-device-pixel-ratio: 1.5) , only screen and
+		(-moz-min-device-pixel-ratio: 2) , only screen and
+		(-o-min-device-pixel-ratio: 3/2) , only screen and
+		(-o-min-device-pixel-ratio: 2/1) , only screen and
+		(-moz-min-device-pixel-ratio: 1.5) , only screen and
+		(min-device-pixel-ratio: 1.5) , only screen and
+	(min-device-pixel-ratio: 2) {
+	.tile.tile-hot:before {
+		background-image: url(../images/tile/ribbon-2x.png);
+	}
+}
+
+.name {
+	font-size: 36px;
+}
+
+.topic-box {
+	background-color: #e3e3e3;
+	display: block;
+	position: relative;
+	max-width: 100%;
+	min-height: 170px;
+}
+
+.topic-box-title {
+	background-color: #a8bee3;
+	font-size: 20px;
+}
+
+.status-box {
+	padding-bottom: 35px;
+}
+
+.comment-pic {
+	float: left;
+	display: inline;
+}
+
+.comment {
+	word-wrap: break-word;
+}
+
+.separator {
+	background-color: #a3a3a3;
+	height: 1px;
+	margin-bottom: 5px;
+}
+
+.itembox {
+	padding: 9px;
+	width: 112px;
+}
+
+.horizontalList {
+	margin: 0;
+}
+
+.horizontalList li {
+	float: left;
+	display: inline;
+	list-style-type: none;
+	padding-right: 4px;
+	padding-bottom: 20px;
+}

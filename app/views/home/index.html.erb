@@ -1,0 +1,225 @@
+<div ng-controller="UsersController" style="background-color: #d8dee7">
+	<div class="navbar navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse"
+					data-target="#nav-collapse-03"></button>
+				<a href="#fakelink" class="brand">MyBook</a>
+				<div class="nav-collapse collapse" id="nav-collapse-03">
+					<ul class="nav">
+						<li><a href="#fakelink" class="fui-user"></a></li>
+						<li><a href="#fakelink" class="fui-chat"></a></li>
+						<li><a href="#fakelink" class="fui-alert"></a></li>
+					</ul>
+					<!-- /nav -->
+
+					<ul class="nav pull-right">
+						<li><img src="assets/profile-pic-50.jpg"
+							alt="Small Profile Picture" style="margin: 1px"></li>
+						<li><a href="#fakelink"> Peace & Raphassit </a></li>
+						<li class="divider"></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">
+								<div class="fui-gear"></div> <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="#fakelink">Edit Profile</a></li>
+								<li><a href="#fakelink">Account Settings</a></li>
+								<li class="divider"></li>
+								<li><a href="#fakelink">Logout</a></li>
+							</ul></li>
+					</ul>
+					<!-- /nav -->
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+	<!-- /navbar-inverse -->
+
+	<div class="container">
+
+		<!-- -->
+		<div class="row-fluid">
+			<div class="span12">
+				<img class="img-rounded" src="assets/cover.jpg"
+					alt="Cover Photo">
+			</div>
+		</div>
+		<!-- -->
+
+		<div class="row-fluid mtl">
+			<!-- left column-->
+			<div class="span5">
+				<!-- -->
+				<div class="tile">
+					<div class="row-fluid">
+						<div class="span12">
+							<div class="tile" style="background-color: #a8bee3">
+								<div class="row-fluid">
+									<div class="span5">
+										<img src="assets/profile-pic-160.jpg"
+											alt="Profile Picture">
+									</div>
+									<div class="span7" style="margin-left: 10px">
+										<b class="name"></br> {{users[0].name}} </br> {{users[0].lastname}} </b>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-fluid mtl">
+						<div class="span12">
+							<div class="popover topic-box">
+								<h3 class="popover-title topic-box-title">About</h3>
+								<div class="popover-content">
+									<p>Education : {{users[0].education}}</p>
+									<p>Hobbies : {{users[0].hobbies}}</p>
+									<p>Birthday : {{users[0].birthday}}</p>
+									<p>Relationship Status : {{users[0].relationship}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-fluid mtl">
+						<div class="span12">
+							<div class="popover topic-box">
+								<h3 class="popover-title topic-box-title">Likes</h3>
+								<div class="popover-content">
+									<ul class="horizontalList" style="overflow: hidden">
+										<li><div class="itembox tile">
+												<a href="http://www.ise.eng.chula.ac.th/web/"
+													target="_blank"> <img src="assets/likes/ise.jpg"
+													alt="ISE">
+													<div class="tile-title">International School of
+														Engineering (ISE), Chulalongkorn University</div>
+												</a>
+											</div></li>
+										<li><div class="itembox tile">
+												<a href="http://www.chula.ac.th/" target="_blank"> <img
+													src="assets/likes/chula.jpg" alt="ISE">
+													<div class="tile-title">Chulalongkorn University</div></a>
+											</div></li>
+										<li><div class="itembox tile">
+												<a href="http://en.wikipedia.org/wiki/Photography"
+													target="_blank"> <img
+													src="assets/likes/photography.jpg" alt="ISE">
+													<div class="tile-title">Photography</div></a>
+											</div></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- -->
+			</div>
+			<!-- /.left column-->
+
+			<!-- right column-->
+			<div class="span7" ng-controller="StatusesController">
+				<!-- -->
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="tile status-box">
+							<textarea class="span8" rows="2"
+								placeholder="What's on your mind?" ng-model="tempStatusText"></textarea>
+							<button class="btn btn-small btn-primary pull-right"
+								style="padding: 3px"
+								ng-click="createStatus(tempStatusText, users[0].id); tempStatusText = '';">Post</button>
+						</div>
+					</div>
+				</div>
+				<!-- -->
+
+				<!-- -->
+				<div class="row-fluid mtl" ng-controller="CommentsController"
+					ng-repeat="status in statuses | orderBy:'-id':reverse">
+					<div class="span12">
+
+						<div class="tile status-box">
+							<p>
+								<img src="assets/profile-pic-50.jpg"
+									alt="Small Profile Picture"> <b>Peace & Raphassit</b>
+							</p>
+							<!--
+							<p>This is my status.</p>
+							-->
+							<p>{{status.content}}</p>
+							<div class="separator"></div>
+							<p>
+								<a href="#fakelink" class="btn btn-small btn-primary"
+									style="padding: 3px">Like</a> <a href="#fakelink"
+									class="btn btn-small btn-primary" style="padding: 3px">Comment</a>
+							</p>
+
+							<div ng-repeat="comment in comments">
+								<div class="separator mtl"></div>
+								<div class="row-fluid">
+									<div class="span" style="width: 8%;">
+										<img src="assets/profile-pic-50.jpg"
+											alt="Small Profile Picture">
+									</div>
+									<div class="span" style="margin-left: 5px; width: 86%;">
+										<p class="comment">
+											<b>Peace & Raphassit</b> {{comment.content}}
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="separator mtl"></div>
+							<textarea class="span8" rows="2" placeholder="Write a comment..."
+								ng-model="tempComment"></textarea>
+							<button class="btn btn-small btn-primary pull-right"
+								style="padding: 3px"
+								ng-click="createComment(tempComment, status.id); tempComment = '';">Post
+								Comment</button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.right column-->
+
+
+		</div>
+	</div>
+	<!-- /.container -->
+
+	<!-- -->
+	<div class="mtl">
+		<div class="bottom-menu bottom-menu-inverse">
+			<div class="container">
+				<div class="row">
+					<div class="span2 brand">
+						<a href="#fakelink" class="brand">MyBook</a>
+					</div>
+					<div class="span5">
+						<ul class="bottom-links">
+							<li><a href="#fakelink">About</a></li>
+							<li><a href="#fakelink">Privacy</a></li>
+							<li><a href="#fakelink">Terms</a></li>
+							<li><a href="#fakelink">Support</a></li>
+							<li><a href="#fakelink">Links</a></li>
+						</ul>
+					</div>
+					<div class="span5">
+						<ul class="bottom-links">
+							<li>Warut Leelachaikul 5331276721</li>
+							<li>Santisuk Prapa-apirat 5331293321</li>
+						</ul>
+						<!--
+						<ul class="bottom-icons">
+							<li><a href="#fakelink" class="fui-pinterest"></a></li>
+							<li><a href="#fakelink" class="fui-facebook"></a></li>
+							<li><a href="#fakelink" class="fui-twitter"></a></li>
+						</ul>
+						-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /bottom-menu-inverse -->
+	</div>
+</div>
